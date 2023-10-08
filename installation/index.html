@@ -1,0 +1,1198 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A repository for creating a custom Home Assistant dashboard on an e-ink display.">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/Dioscorides/e-inkunabula/installation/">
+      
+      
+        <link rel="prev" href="../requirements/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+    
+    
+      
+        <title>Installation - E-Inkunabula</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bd3936ea.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="E-Inkunabula" class="md-header__button md-logo" aria-label="E-Inkunabula" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            E-Inkunabula
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Dioscorides/e-inkunabula" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    e-inkunabula
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../requirements/" class="md-tabs__link">
+          
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="E-Inkunabula" class="md-nav__button md-logo" aria-label="E-Inkunabula" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    E-Inkunabula
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Dioscorides/e-inkunabula" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    e-inkunabula
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-notes-before-you-start" class="md-nav__link">
+    Important notes before you start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-setting-up-home-assistant-and-kiosk-mode" class="md-nav__link">
+    Step 1 - Setting up Home Assistant and Kiosk Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-setting-up-home-assistant-lovelace-kindle-screensaver" class="md-nav__link">
+    Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-home-assistant-access-token" class="md-nav__link">
+    Creating a Home Assistant Access Token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-setting-up-the-raspberry-pi" class="md-nav__link">
+    Step 3 - Setting up the Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-installing-inkycal-on-the-raspberry-pi" class="md-nav__link">
+    Step 4 - Installing Inkycal on the Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-modifying-inkycals-files" class="md-nav__link">
+    Step 5 - Modifying Inkycal's files
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 - Modifying Inkycal's files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-adapting-the-vcom" class="md-nav__link">
+    Step 5.1: Adapting the VCOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-saving-the-image-in-the-right-format-for-the-display" class="md-nav__link">
+    Step 5.2: Saving the image in the right format for the display
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-import-your-screenshot-to-the-raspberry-pi-and-autostarting" class="md-nav__link">
+    Step 6 - Import your screenshot to the Raspberry Pi and autostarting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inkycal-get-stuck-while-installing-or-the-installation-seems-to-take-hours" class="md-nav__link">
+    Inkycal get stuck while installing, or the installation seems to take hours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-notes-before-you-start" class="md-nav__link">
+    Important notes before you start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-setting-up-home-assistant-and-kiosk-mode" class="md-nav__link">
+    Step 1 - Setting up Home Assistant and Kiosk Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-setting-up-home-assistant-lovelace-kindle-screensaver" class="md-nav__link">
+    Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-home-assistant-access-token" class="md-nav__link">
+    Creating a Home Assistant Access Token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-setting-up-the-raspberry-pi" class="md-nav__link">
+    Step 3 - Setting up the Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-installing-inkycal-on-the-raspberry-pi" class="md-nav__link">
+    Step 4 - Installing Inkycal on the Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-modifying-inkycals-files" class="md-nav__link">
+    Step 5 - Modifying Inkycal's files
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 - Modifying Inkycal's files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-adapting-the-vcom" class="md-nav__link">
+    Step 5.1: Adapting the VCOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-saving-the-image-in-the-right-format-for-the-display" class="md-nav__link">
+    Step 5.2: Saving the image in the right format for the display
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-import-your-screenshot-to-the-raspberry-pi-and-autostarting" class="md-nav__link">
+    Step 6 - Import your screenshot to the Raspberry Pi and autostarting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inkycal-get-stuck-while-installing-or-the-installation-seems-to-take-hours" class="md-nav__link">
+    Inkycal get stuck while installing, or the installation seems to take hours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="installation">Installation</h1>
+<h2 id="hardware">Hardware</h2>
+<ol>
+<li>Connect the IT8951 driver board to the Raspberry Pi using the <a href="https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/">40-pin GPIO header</a>.</li>
+<li>Connect the WaveShare 9.7" e-ink display to the 9.7" e-ink display adapter, and connect the 9.7" e-ink display adapter to the IT8951 driver board using the FPC cable<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. The FPC cable is the orange cable at the bottom of your display.</li>
+</ol>
+<h2 id="software">Software</h2>
+<p>This guide is structured as follows:</p>
+<ul>
+<li><a href="#step-1---setting-up-home-assistant-and-kiosk-mode">Step 1 - Setting up Home Assistant and Kiosk Mode</a> - We will use <a href="https://www.home-assistant.io/">Home Assistant</a> in "Kiosk mode" to create a view that is optimized for our e-ink display.</li>
+<li><a href="#step-2---setting-up-home-assistant-lovelace-kindle-screensaver">Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver</a> - We will use <a href="https://github.com/sibbl/hass-lovelace-kindle-screensaver">Home Assistant Lovelace Kindle Screensaver</a> to take a screenshot of our Home Assistant view.</li>
+<li><a href="#step-3---setting-up-the-raspberry-pi">Step 3 - Setting up the Raspberry Pi</a> and <a href="#step-4---installing-inkycal-on-the-raspberry-pi">Step 4 - Installing Inkycal on the Raspberry Pi</a> - Next we will set up the Raspberry Pi and install <a href="https://github.com/aceinnolab/Inkycal">Inkycal</a> on it.</li>
+<li><a href="#step-5---modifying-inkycals-files">Step 5 - Modifying Inkycal's files</a> and <a href="#step-6---import-your-screenshot-to-the-raspberry-pi-and-autostarting">Step 6 - Import your screenshot to the Raspberry Pi and autostarting</a> - Finally, we will use a Python script to fetch the screenshot from the server to the Raspberry Pi and display it on the e-ink display.</li>
+</ul>
+<h3 id="important-notes-before-you-start">Important notes before you start</h3>
+<p>This guide assumes you have Home Assistant (HA) already up and running. In this guide Home Assistant instance is running on a Synology DS218+ NAS, but the workflow should work if you are running HA in other ways as well.</p>
+<p>We will also reference to <a href="https://www.portainer.io/">Portainer</a>. Portainer is a Docker management tool that makes it easier to manage Docker containers and we will use is to create a stack to run <a href="https://github.com/sibbl/hass-lovelace-kindle-screensaver">Home Assistant Lovelace Kindle Screensaver</a>. You can use Synology's Container Manager to create a stack too, but Portainer is easier to use<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> and the Community Edition (CE) is free.</p>
+<h2 id="step-1-setting-up-home-assistant-and-kiosk-mode">Step 1 - Setting up Home Assistant and Kiosk Mode</h2>
+<p>This is not strictly necessary, but we recommend setting up a dedicated view in Home Assistant for your e-ink display using "Kiosk Mode". This will allow you to create a view that is optimized for your e-ink display by removing unnecessary elements, such as the sidebar and the header.</p>
+<p>While out of the scope of this guide, here is a quick guide on how to install HACS for Home Assistant running on a Synology NAS:</p>
+<ol>
+<li>Manually download the latest version of HACS from this link: <a href="https://github.com/hacs/integration/releases">HACS Releases</a>.</li>
+<li>After downloading, unzip the contents of the <code>hacs.zip</code> file on your computer.</li>
+<li>Using Synology's "File Station", locate your Home Assistant docker installation directory, usually located in the <code>/volume1/docker/</code> folder.</li>
+<li>Navigate to the <code>custom_components</code> folder within your Home Assistant directory.</li>
+<li>Copy the contents of the unzipped HACS folder into the custom_components/hacs directory.</li>
+<li>Restart your Home Assistant server to apply the changes.</li>
+<li>Open your Home Assistant web interface.</li>
+<li>Navigate to "Configuration" and then "Integrations."</li>
+<li>Search for the HACS integration and activate it.</li>
+</ol>
+<p>If you know how to SSH directly into your Home Assistant docker container, you can also install HACS using the following command - although you might encounter issues we are not covering in this guide:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://get.hacs.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span>-
+</span></code></pre></div>
+<p>Refer to the <a href="https://hacs.xyz/docs/configuration/basic/">HACS Documentation</a> for additional guidance on initial configuration and how to view a "kiosked" view in Home Assistant.</p>
+<p>If the HACS integration does not appear:</p>
+<ol>
+<li>Try using a different web browser.</li>
+<li>Clear your browser cache and attempt the search again.</li>
+</ol>
+<p>Open HACS by clicking "HACS" on the Home Assistant sidebar, and install <a href="https://github.com/maykar/kiosk-mode">Kiosk Mode</a>. Have fun creating a view that is optimized for your e-ink display!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Consider also installing <a href="https://github.com/thomasloven/lovelace-layout-card#layout-card">layout-card</a> using HACS for more control on how your view is displayed.</p>
+</div>
+<h2 id="step-2-setting-up-home-assistant-lovelace-kindle-screensaver">Step 2 - Setting up Home Assistant Lovelace Kindle Screensaver</h2>
+<p>Now that we have a dedicated view for our e-ink display, we want to take screenshots of it. We are going to use <a href="https://github.com/sibbl/hass-lovelace-kindle-screensaver">Home Assistant Lovelace Kindle Screensaver</a> via a docker container to achieve this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As mentioned earlier, we will be using Portainer for this step.</p>
+</div>
+<ol>
+<li>Create a new folder in your Synology NAS. We will use <code>/volume1/docker/screenshotter</code> in this guide.</li>
+<li>
+<p>Got to your Portainer instance and create a new stack. You can do this by clicking on <code>Stacks</code> in the left sidebar, and then clicking on <code>Add stack</code>:</p>
+<ul>
+<li>Give your stack a name. We will use <code>screenshotter</code>.</li>
+<li>As <code>Build method</code> select <code>Web editor</code>.</li>
+<li>In the <code>Web editor</code> field, copy and paste the following code:</li>
+</ul>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sibbl/hass-lovelace-kindle-screensaver:latest</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HA_BASE_URL=http://YOUR_LOCAL_HOME_ASSISTANT_IP:PORT</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HA_SCREENSHOT_URL=/dashboard-kiosk/default_view?kiosk</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HA_ACCESS_TOKEN=</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CRON_JOB=*/1 * * * *</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RENDERING_TIMEOUT=30000</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RENDERING_DELAY=0</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RENDERING_SCREEN_HEIGHT=805</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RENDERING_SCREEN_WIDTH=1150</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COLOR_MODE=TrueColor</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GRAYSCALE_DEPTH=16</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OUTPUT_PATH=/output/image.png</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LANGUAGE=en</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="nt">restart_policy</span><span class="p">:</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">on-failure</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">max_attempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="nt">window</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">120s</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7799:5000</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/volume1/docker/screenshotter/output:/output:rw</span>
+</span></code></pre></div>
+<p>Be mindful of the indentations.</p>
+<p>An explanation of the different fields:</p>
+<ul>
+<li><code>image</code>: The image that will be used to run the container. We will use <code>sibbl/    hass-lovelace-kindle-screensaver:latest</code> in this guide. <code>latest</code> is <strong>version 1.0.5</strong>   at the time of writing.</li>
+<li><code>HA_BASE_URL</code>: The URL of your local Home Assistant instance.</li>
+<li><code>HA_SCREENSHOT_URL</code>: The path of the view you want to take a screenshot of.</li>
+<li><code>HA_ACCESS_TOKEN</code>: The access token of your Home Assistant instance. See <a href="#creating-a-home-assistant-access-token">Creating    a Home Assistant Access Token</a> for more   information.</li>
+<li><code>CRON_JOB</code>: The cron job that will be used to take a screenshot of your Home  Assistant view. The default value is <code>*/1 * * * *</code>, which means that a screenshot    will be taken every minute. You can change this value to your liking.</li>
+<li><code>RENDERING_TIMEOUT</code>: The timeout for the screenshot. The default value is <code>30000</code>,    which means that the screenshot will timeout after 30 seconds. You can change this     value to your liking.</li>
+<li><code>RENDERING_DELAY</code>: The delay before the screenshot is taken. The default value is     <code>0</code>. In our case, changing this value resulted in HA's cards not being rendered     correctly, so we left it at <code>0</code>.</li>
+<li><code>RENDERING_SCREEN_HEIGHT</code>: The height of the screenshot. Check the specifications     of your e-ink display to find out what the height of your display is. From there,   experiment with different values to find out what works best for you.</li>
+<li><code>RENDERING_SCREEN_WIDTH</code>: The width of the screenshot. Same as above.</li>
+<li><code>COLOR_MODE</code>: The color mode of the screenshot. Since our WaveShare 9.7" e-ink    display can display HD images at 16bit Grayscale, we set this value to <code>TrueColor</code> as  the screen is capable of rendering the various shades of colors transformed to gray.</li>
+<li><code>GRAYSCALE_DEPTH</code>: The grayscale depth of the screenshot. Since our WaveShare 9.7"    e-ink display can display HD images at 16bit Grayscale, we set this value to <code>16</code>  (optional).</li>
+<li><code>OUTPUT_PATH</code>: The path where the screenshot will be saved. We will use <code>/output/ image.png</code> in this guide.</li>
+<li><code>LANGUAGE</code>: The language of the screenshot. We will use <code>en</code> in this guide    (optional).</li>
+<li><code>restart_policy</code>: The restart policy of the container. We are using <code>on-failure</code>,     with a <code>delay</code> of <code>5s</code>, <code>max_attempts</code> of <code>3</code>, and a <code>window</code> of <code>120s</code> in this case.   This means that the container will be restarted if it fails, with a delay of 5    seconds between each attempt, a maximum of 3 attempts, and a window of 120 seconds. You can change these values to your liking.</li>
+<li><code>ports</code>: The port that will be used to access the container. We will use <code>7799</code> in this guide.</li>
+<li>Click on <code>Deploy stack</code>.</li>
+<li>Navigate to <code>http://YOUR_LOCAL_HOME_ASSISTANT_IP:7799</code> to check if the container is running correctly. You should see a screenshot of the Home Assistant view you specified in the <code>HA_SCREENSHOT_URL</code> field.</li>
+</ul>
+</li>
+</ol>
+<h3 id="creating-a-home-assistant-access-token">Creating a Home Assistant Access Token</h3>
+<p>The easiest way to create a Home Assistant access token is to use the navigate to your Home Assistant instance, login as an administrator, click on your profile picture in the bottom left corner, scroll down to the <code>Long-Lived Access Tokens</code> section, and click on <code>Create Token</code>. Give your token a name, and copy the token to your clipboard. Paste the token in the <code>HA_ACCESS_TOKEN</code> field in the Portainer stack here above.</p>
+<h2 id="step-3-setting-up-the-raspberry-pi">Step 3 - Setting up the Raspberry Pi</h2>
+<p>We finally have an image of a Home Assistant dashboard. Now we "just" need to display it on our e-ink display! First up, we need to install Raspberry Pi OS on our Raspberry Pi:</p>
+<ul>
+<li>Install Raspberry Pi OS using <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a>. Follow the on-screen instructions and <strong>make sure you pre-configure your WiFi settings and enable SSH</strong>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note down your <code>hostname</code>, <code>username</code>, and <code>password</code> you have chosen, as you will need them to SSH into your Raspberry Pi later on. You can find more information about how to SSH into your Raspberry Pi <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh-access-to-the-pi">here</a>.</p>
+</div>
+<p>After installing Raspberry Pi OS, boot your Raspberry Pi and try to SSH into using, as an example, <a href="https://termius.com/">Terminus</a> or <a href="https://www.solarwinds.com/free-tools/solar-putty">Solar-PuTTY</a>.</p>
+<h2 id="step-4-installing-inkycal-on-the-raspberry-pi">Step 4 - Installing Inkycal on the Raspberry Pi</h2>
+<p>We have the screenshot, we have a working Raspberry Pi. Now it's time to install Inkycal on the Raspberry Pi: a Python application that will allow us to display the screenshot on our e-ink display.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We are using <strong>Inkycal v.2.0.2 specifically</strong>! Inkycal is in constant development, and the issues encountered in this guide might have been fixed already. If you are using a different version, the files we are going to edit might be different.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You might encounter issues while installing Inkycal on your Raspberry Pi. Check the <a href="#troubleshooting">Troubleshooting</a> section for more information.</p>
+</div>
+<ol>
+<li>Follow the instructions at <a href="https://github.com/aceinnolab/Inkycal">Inkycal's GitHub page</a> to install Inkycal on your Raspberry Pi.</li>
+<li>
+<p>Step 2 on the Inkcal's guide will tell you to create a <code>settings.json</code> file to flash in the <code>/boot</code> folder, using their <a href="https://aceisace.eu.pythonanywhere.com/inkycal-config-v2-0-0">web-ui</a>. Do so, and fill the fields with the information that applies to your case.<br />
+   In the <code>Modules config</code> area you should add only 1 module: <code>Inkycal Image</code>, with a <code>Module height (by ratio)</code> of <code>1</code>. Click on <code>Generate settings file</code> and download the <code>settings.json</code> file.</p>
+<p>For reference, the following is the <code>settings.json</code> we'll be using for this guide:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;9_in_7&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;update_interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;info_section&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;info_section_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;border_around_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;calibration_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="mi">12</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">&quot;modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">            </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Inkyimage&quot;</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">            </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">                </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                    </span><span class="mi">825</span><span class="p">,</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">                    </span><span class="mi">1170</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">                </span><span class="p">],</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">                </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/pi/screenshots/image.png&quot;</span><span class="p">,</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">                </span><span class="nt">&quot;palette&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bw&quot;</span><span class="p">,</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">                </span><span class="nt">&quot;autoflip&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">                </span><span class="nt">&quot;padding_x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">                </span><span class="nt">&quot;padding_y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">                </span><span class="nt">&quot;fontsize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">                </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="p">}</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Carefully follow Inkycal's instructions on step <code>6.</code>.<br />
+   This step mentions that <code>If you have the 12.48" display, these steps are also required:</code>, but this also applies to our 9.7" screen:<br />
+   Use the following commands to install the BCM2835 library on the Raspberry Pi. Load the terminal on the Raspberry Pi via SSH and type the following commands:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget<span class="w"> </span>http://www.airspayce.com/mikem/bcm2835/bcm2835-1.xx.tar.gz
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tar<span class="w"> </span>zxvf<span class="w"> </span>bcm2835-1.xx.tar.gz
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">cd</span><span class="w"> </span>bcm2835-1.xx/
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sudo<span class="w"> </span>./configure
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>make
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>sudo<span class="w"> </span>make<span class="w"> </span>check
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div>
+<ul>
+<li>Replace <code>1.xx</code> with the version number of the library that you downloaded. <code>1.73</code> at the time of writing.</li>
+<li><code>./configure</code>: This command runs a script that checks the system for any necessary dependencies and configures the library for the system.</li>
+<li><code>make</code>: This command compiles the library.</li>
+<li><code>sudo make check</code>: This command runs a set of tests to ensure that the library was compiled correctly.</li>
+<li><code>sudo make install</code>: This command installs the library on the system.</li>
+</ul>
+<p>Next, install <code>WiringPi</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wget<span class="w"> </span>https://project-downloads.drogon.net/wiringpi-latest.deb
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>wiringpi-latest.deb
+</span></code></pre></div>
+</li>
+<li>
+<p>Next, follow the instructions in the "<a href="https://github.com/aceinnolab/Inkycal#manual-installation">Manual installation</a>" section.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is where you might encounter issues. Specifically, you might encounter issues while installing <code>numpy</code> and <code>matplotlib</code> while running the <code>pip install -e ./</code> command. If you do, follow the instructions in the <a href="#troubleshooting">Troubleshooting</a> section.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>If you were able to successfully install Ikycal we strongly advise against running it just yet! The default settings have a VCOM hardcoded to 2.00 which might be too high for your e-ink display and might cause ghosting in the long term. We will fix this in the next steps.</p>
+</div>
+<h2 id="step-5-modifying-inkycals-files">Step 5 - Modifying Inkycal's files</h2>
+<p>You are almost there! Once you have successfully installed Inkycal, you need to modify some of its files to make sure it works correctly with your e-ink display.</p>
+<ol>
+<li>Adapt the VCOM value being passed to the e-ink display which might in its original value might cause ghosting in the long run.</li>
+<li>Fix the hardcoded <code>.convert('1', dither=dither)</code> value that forces the image to be converted to bilevel (black and white only), using dither to simulate grayscale.</li>
+</ol>
+<h3 id="step-51-adapting-the-vcom">Step 5.1: Adapting the VCOM</h3>
+<p>The official WaveShare documentation is very clear about this:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>The VCOM value of each E-paper has certain differences. The VCOM value of each E-paper is marked on the FPC cable, so make sure the correct VCOM value is used in each execution of the demo, otherwise, the display will become worse if the E-paper works under the wrong VCOM value for a long time<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+</div>
+<p>What WaveShare means is that if the e-ink display runs using the wrong VCOM for an extended period of time, it will burn in; the screen will not be able to refresh itself properly and you will experience irreversible ghosting.</p>
+<p>The drivers used by Inkycal use a default hardcoded value. In the case of the 9.7" inch driver, it is set to <code>2.00</code>.</p>
+<p>Check the VCOM value on the FPC of your e-ink display. The FPC is the orange cable at the bottom of your display. The VCOM value is printed on the FPC in rather small letters and starts with a <code>-</code> (minus). On newer models it is printed on top of a QR code. In our case the value visible was <code>-1.81</code></p>
+<p>On your Raspberry Pi, navigate to your display's driver. In this case we will edit the 9.7" driver in <code>/home/pi/Inkycal/inkycal/display/drivers/9_in_7.py</code>. Find the <code>VCOM = "2.00</code>. Replace <code>2.00</code> with the VCOM value of your display. In our case: <code>1.81</code>. Note that it is not necessary to add the minus <code>-</code>; it is added later in the same script.</p>
+<p>Save the edited script.</p>
+<h3 id="step-52-saving-the-image-in-the-right-format-for-the-display">Step 5.2: Saving the image in the right format for the display</h3>
+<p>Inkycal's <code>main.py</code> describes the attributes of the <code>main</code> class with the following statement:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="sd">Attributes:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="sd">  - optimize = True/False. Reduce number of colours on the generated image</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="sd">    to improve rendering on E-Papers. Set this to False for 9.7&quot; E-Paper.</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="sd">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+<p>Yet, in the same file, we see that in TODO: ADD EXACT LINE, we see a hardcoded variable:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Option to use epaper image optimisation, reduces colours</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">optimize</span> <span class="o">=</span> <span class="kc">True</span>
+</span></code></pre></div>
+<p>This will <em>always</em> reduce the quality of the images before sending them to the e-ink display.<br />
+Switch the statement to <code>False</code> to fix this:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">optimize</span> <span class="o">=</span> <span class="kc">False</span>
+</span></code></pre></div>
+<p>Next, it is crucial that you edit the Inkcal "Image" module at <code>/home/pi/Inkycal/inkycal/modules/inky_image.py</code>. In this file, find the following line of code:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">im_black</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">dither</span><span class="o">=</span><span class="n">dither</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This means that the the script will always attempt to convert the image to a bilinear black and white image. There will be no grayscale, rather the shades of gray will be emulated using dither: a technique that uses a pattern of dots to simulate shades of gray.</p>
+<p>Change this value to:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">im_black</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>For more information about the different image modes, check <a href="https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes">Pillow's documentation</a>.</p>
+<h2 id="step-6-import-your-screenshot-to-the-raspberry-pi-and-autostarting">Step 6 - Import your screenshot to the Raspberry Pi and autostarting</h2>
+<ol>
+<li>Using your favorite SFTP client, connect to your Raspberry Pi, using the same credentials used for the SSH connection, and navigate to the <code>/home/pi/screenshots</code> folder.</li>
+<li>Upload the <code>fetch_image.py</code> in the <code>raspberry_pi/screenshots</code> folder of this repository to the <code>/home/pi/screenshots</code> folder on your Raspberry Pi.</li>
+<li>Run the script.</li>
+</ol>
+<p>You should see a new <code>image.png</code> file in the <code>/home/pi/screenshots</code> folder!</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You must make sure that this script runs when you start your Raspberry Pi, and that it runs regularl using <a href="hhttps://www.raspberrypi.com/documentation/computers/camera_software.html#automating-using-cron-jobs">Cron</a> and the command <code>sudo crontab -e</code>.
+For example:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>*/3<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>python3<span class="w"> </span>/home/pi/screenshots/fetch_image.py
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>@reboot<span class="w"> </span>python3<span class="w"> </span>/home/pi/screenshots/fetch_image.py
+</span></code></pre></div>
+</div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="inkycal-get-stuck-while-installing-or-the-installation-seems-to-take-hours">Inkycal get stuck while installing, or the installation seems to take hours</h3>
+<p>This is a known issue. You can find more information about it <a href="https://github.com/aceinnolab/Inkycal/issues/262">here</a>. We solved it like this:</p>
+<ol>
+<li>
+<p>Increase the swapfile size on your Raspberry Pi: SSH to your Raspberry Pi and run the following commands, line by line. This will increase the swapfile size to 256MB.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>swapoff
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/dphys-swapfile
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;/^CONF_SWAPSIZE=/s/=.*/=256/&#39;</span><span class="w"> </span>/etc/dphys-swapfile
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>setup
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>swapon
+</span></code></pre></div>
+</li>
+<li>
+<p>Reboot your Raspberry Pi.</p>
+</li>
+<li>
+<p>You will notice that the ticket linked above mentions installing <code>numpy</code> and <code>matplotlib</code> separately and individually. In our case, we were not able to install them because of missing BLAS libraries. We solved this by installing the following package:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">cd</span><span class="w"> </span>~/Inkycal<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libopenblas-dev
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--verbose<span class="w"> </span>--no-cache-dir<span class="w"> </span>numpy
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--verbose<span class="w"> </span>--no-cache-dir<span class="w"> </span>matplotlib
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>--verbose<span class="w"> </span>./
+</span></code></pre></div>
+<p>These installation can take a long time (30+ minutes) and might seem stuck. That is why we added the <code>--verbose</code> flag to the <code>pip install</code> commands: this will show you the progress of the installation.</p>
+</li>
+</ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>You can connect the FPC cable directly to the IT8951 driver board, but this is not recommended as it is more difficult to move the Raspberry Pi around and, later on, hide it in a case.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>If you are using Synology's Container Manager, but are interested in Portainer you can follow <a href="https://mariushosting.com/synology-30-second-portainer-install-using-task-scheduler-docker/">this excellent guide</a> to install Portainer on your Synology NAS.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Source: <a href="https://www.waveshare.com/wiki/7.8inch_e-Paper_HAT">WaveShare's Wiki</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../requirements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Requirements">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Requirements
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      GNU General Public License v3.0; Giulio Menna – <a href="#__consent">Change cookie settings</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://giuliomenna.net/" target="_blank" rel="noopener" title="giuliomenna.net" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Dioscorides" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.tracking", "toc.follow", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.94c44541.min.js"></script>
+      
+    
+  </body>
+</html>
