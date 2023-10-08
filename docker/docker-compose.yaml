@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  app:
+    image: sibbl/hass-lovelace-kindle-screensaver:latest
+    environment:
+      - HA_BASE_URL=http://192.168.1.65:8123
+      - HA_SCREENSHOT_URL=/dashboard-kiosk/default_view?kiosk
+      - HA_ACCESS_TOKEN=
+      - CRON_JOB=*/1 * * * *
+      - RENDERING_TIMEOUT=30000
+      - RENDERING_DELAY=0
+      - RENDERING_SCREEN_HEIGHT=805
+      - RENDERING_SCREEN_WIDTH=1150
+      - COLOR_MODE=TrueColor
+      - GRAYSCALE_DEPTH=16
+      - OUTPUT_PATH=/output/image.png
+      - LANGUAGE=en
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+        window: 120s
+
+    ports:
+      - 7799:5000
+    volumes:
+      - /volume1/docker/screenshotter/output:/output:rw

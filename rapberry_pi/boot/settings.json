@@ -1,0 +1,33 @@
+{
+    "model": "9_in_7",
+    "update_interval": 15,
+    "orientation": 0,
+    "info_section": true,
+    "info_section_height": 30,
+    "border_around_modules": false,
+    "calibration_hours": [
+        2,
+        6,
+        12
+    ],
+    "modules": [
+        {
+            "position": 1,
+            "name": "Inkyimage",
+            "config": {
+                "size": [
+                    825,
+                    1170
+                ],
+                "path": "/home/pi/screenshots/image.png",
+                "palette": "bw",
+                "autoflip": true,
+                "orientation": "vertical",
+                "padding_x": 10,
+                "padding_y": 10,
+                "fontsize": 12,
+                "language": "en"
+            }
+        }
+    ]
+}
